@@ -16,12 +16,45 @@ Else
  
 Program:
 
-//type your code here
+~~~
+#include <stdio.h>
+struct eligible {
+    int age;
+    char name[50];
+};
+
+int main() {
+    int i, n;
+    struct eligible e[100]; 
+    printf("Enter number of persons: ");
+    scanf("%d", &n);
+    for(i = 0; i < n; i++) {
+        printf("\nEnter name of person %d: ", i + 1);
+        scanf("%s", e[i].name);
+        printf("Enter age of person %d: ", i + 1);
+        scanf("%d", &e[i].age);
+    }
+    printf("\n--- Vaccine Eligibility Check ---\n");
+    for(i = 0; i < n; i++) {
+        printf("\nName: %s", e[i].name);
+        printf("\nAge: %d", e[i].age);
+
+        if(e[i].age <= 6)
+            printf("\nVaccine Eligibility: No\n");
+        else
+            printf("\nVaccine Eligibility: Yes\n");
+    }
+
+    return 0;
+}
+
+~~~
 
 
 Output:
 
-//paste your output here
+<img width="1212" height="553" alt="image" src="https://github.com/user-attachments/assets/750b4320-3e77-42a6-9577-5c56485d0ec3" />
+
 
 
 Result:
@@ -44,17 +77,35 @@ Algorithm:
  
 Program:
 
-//type your code here
+~~~
+#include <stdio.h>
+struct numbers {
+    int a;
+    int b;
+};
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    return result;
+}
 
+int main() {
+    struct numbers n, sum;
+    printf("Enter the value of a: ");
+    scanf("%d", &n.a);
+    printf("Enter the value of b: ");
+    scanf("%d", &n.b);
+    sum = add(n);
+    printf("Sum = %d\n", sum.a);
 
+    return 0;
+}
 
+~~~
 
 Output:
 
-
-//paste your output here
-
-
+<img width="1215" height="562" alt="image" src="https://github.com/user-attachments/assets/770f0e50-6f29-4386-a923-f3aee87fba5d" />
 
 
 Result:
@@ -86,23 +137,29 @@ Use scanf to input the file name into the name array.
  
 Program:
 
-//type your code here
-
-
-
+~~~
+#include <stdio.h>
+ int main()
+ {
+    FILE *fp;
+    char fn[20];
+    scanf("%s",fn);
+    fp=fopen(fn,"w");
+    if(fp!=NULL)
+    {
+        printf("%s File Created Successfully\n",fn);
+        printf("%s File Opened\n",fn);
+    }
+    fclose(fp);
+    printf("%s File Closed",fn);
+    
+    return 0;
+ }
+~~~
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
-
+<img width="455" height="166" alt="image" src="https://github.com/user-attachments/assets/1730cac3-f540-4ff7-a521-f492144f7ad1" />
 
 
 
@@ -133,19 +190,36 @@ Use scanf to input the file name into the name array and the number of strings i
  
 Program:
 
-//type your code here
+~~~
+#include <stdio.h>
+ int main()
+ {
+    FILE *fp;
+    char fn[20];
+    int users;
+    scanf("%s",fn);
+    fp=fopen(fn,"w");
+    if(fp!=NULL)
+    {
+        printf("%s Opened\n",fn);
+    }
+    scanf("%d",&users);
+    char data[100];
+    for(int i=0;i<users;i++)
+    {
+        scanf("%s",data);
+        fprintf(fp,"%s\n",data);
+    }
+    fclose(fp);
+    printf("Data added Successfully");
+    return 0;
+ }
 
-
-
+~~~
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="403" height="208" alt="image" src="https://github.com/user-attachments/assets/b144f182-f93f-41a6-a2a8-c3d73f0819d4" />
 
 
 Result:
@@ -187,19 +261,45 @@ Algorithm:
 
 Program:
 
-//type your code here
+~~~
+#include <stdio.h>
+#include <stdlib.h>
+struct subject {
+    char name[50];
+    int marks;
+};
 
+int main() {
+    int n, i;
+    struct subject *s;
+    printf("Enter the number of subjects: ");
+    scanf("%d", &n);
+    
+    s = (struct subject *)malloc(n * sizeof(struct subject));
+    
+    if (s == NULL) {
+       printf("Memory allocation failed!\n");
+       return 1;
+    }
+    for (i = 0; i < n; i++){
+        printf("\nEnter name of subject %d: ", i+1);
+        scanf("%s", s[i].name);
+        printf("Enter marks for %s: ",s[i].name);
+        scanf("%d", &s[i].marks);
+}
+printf("\nSubject Details:\n");
+for (i = 0; i < n; i++) {
+    printf("Subject: %s, Marks: %d\n", s[i].name, s[i].marks);
+}
+free(s);
+return 0;
+}
 
-
+~~~
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="636" height="498" alt="image" src="https://github.com/user-attachments/assets/62037327-0a59-4e96-882a-96378efa68be" />
 
 
 Result:
