@@ -1,5 +1,4 @@
 
-
 EXP NO:21 C PROGRAM TO CREATE A FUNCTION TO FIND THE GREATEST NUMBER
 Aim:
 To write a C program to create a function to find the greatest number
@@ -12,10 +11,30 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
-//type your code here
-
+~~~
+#include<stdio.h>
+int max(int a,int b,int c,int d)
+{
+    if(a>b && a>c && a>d)
+    return a;
+    else if(b>a && b>c && b>d)
+    return b;
+    else if(c>a && c>b && c>d)
+    return c;
+    else 
+    return d;
+}
+int main()
+{
+    int a,b,c,d;
+    scanf("%d%d%d%d",&a,&b,&c,&d);
+    printf("%d",max(a,b,c,d));
+}
+~~~
 Output:
-//paste your output here
+
+<img width="297" height="274" alt="image" src="https://github.com/user-attachments/assets/de5905d2-bf9e-4964-b40a-ac2caf30c53c" />
+
 
 Result:
 Thus, the program  that create a function to find the greatest number is verified successfully.
@@ -36,10 +55,37 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
-//type your code here
+~~~
+#include <stdio.h>
+void calculate_the_maximum(int n,int k){
+    int a=0,o=0,x=0;
+    for(int i=1; i<=n; i++){
+        for(int j=i+1; j<=n; j++){
+            if((i&j)>a && (i&j)<k){
+                a=i&j;
+            }
+            if((i|j)>o && (i|j)<k){
+                o=i|j;
+            }
+            if((i^j)>x && (i^j)<k){
+                x=i^j;
+            }
+        }
+    }
+    printf("%d\n%d\n%d\n",a,o,x);
+}
+int main(){
+    int n,m;
+    scanf("%d%d",&n,&m);
+    calculate_the_maximum(n,m);
+}
 
+
+~~~
 Output:
-//paste your output here
+
+<img width="299" height="308" alt="image" src="https://github.com/user-attachments/assets/0cf3a483-f546-4c02-a846-18a0d4fa1e12" />
+
 
 Result:
 Thus, the program to print the maximum values for the AND, OR and XOR comparisons
@@ -59,10 +105,49 @@ Algorithm:
 5.	Use a for loop to iterate over the queries.
  
 Program:
-//type your code here
 
+~~~
+#include <stdio.h>
+
+int main() {
+    int noshel, noque;
+    scanf("%d%d", &noshel, &noque);
+
+    int shelarr[noshel][1000]; 
+    int book_count[noshel];  
+    for (int i = 0; i < noshel; i++) {
+        book_count[i] = 0;
+    }
+
+    for (int i = 0; i < noque; i++) {
+        int queno;
+        scanf("%d", &queno);
+
+        if (queno == 1) {
+            int shelnu, nopage;
+            scanf("%d%d", &shelnu, &nopage);
+            shelarr[shelnu][book_count[shelnu]] = nopage;
+            book_count[shelnu]++;
+        } 
+        else if (queno == 2) {
+            int pshelno, pbookno;
+            scanf("%d%d", &pshelno, &pbookno);
+            printf("%d\n", shelarr[pshelno][pbookno]);
+        } 
+        else if (queno == 3) {
+            int ppshelno;
+            scanf("%d", &ppshelno);
+            printf("%d\n", book_count[ppshelno]);
+        }
+    }
+
+    return 0;
+}
+
+~~~
 Output:
-//paste your output here
+
+<img width="304" height="230" alt="image" src="https://github.com/user-attachments/assets/41a9f5f2-20c6-41f8-8893-32dc103b761f" />
 
 
 Result:
@@ -86,12 +171,28 @@ Algorithm:
 
 
 Program:
-//type your code here
 
+~~~
+#include<stdio.h>
+int main()
+{
+    int n,sum=0;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=1;i<=n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=1;i<=n;i++)
+    {
+        sum+=a[i];
+    }
+    printf("%d",sum);
+}
+~~~
 Output:
-//paste your output here
 
- 
+<img width="442" height="175" alt="image" src="https://github.com/user-attachments/assets/4a5402f3-763c-449a-830e-5534f9a9e0d2" />
 
 
 Result:
@@ -99,9 +200,7 @@ Thus, the program prints the sum of the integers in the array is verified succes
 
 
  
-EXP NO 25: C PROGRAM TO COUNT THE NUMBER OF WORDS IN A      SENTENCE
-
-
+EXP NO 25: C PROGRAM TO COUNT THE NUMBER OF WORDS IN A  SENTENCE
 
 Aim:
 
@@ -117,14 +216,28 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 4.	Handle spaces and punctuation: Skip over spaces, punctuation marks, and consider each word as a sequence of characters separated by spaces.
 5.	Display the result: After processing the sentence, output the total word count.
 
-
-
 Program:
-//type your code here
+~~~
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+     char str[100];
+     fgets(str,sizeof(str),stdin);
+     int len=sizeof(str);
+     int count=1;
+     for(int i=0;i<len-1;i++){
+     if(str[i]==' ')
+     count++;                         
+     }
+printf("Total number of words in the string is :%d",count);
+return 0;
+}
+~~~
 
 Output:
-//paste your output here
 
+<img width="1097" height="136" alt="image" src="https://github.com/user-attachments/assets/a43f1802-72c7-4839-acff-60736f676e8e" />
 
 
 Result:
